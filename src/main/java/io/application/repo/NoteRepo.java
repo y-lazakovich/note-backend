@@ -1,7 +1,7 @@
-package com.cherishdev.repo;
+package io.application.repo;
 
-import com.cherishdev.domain.Note;
-import com.cherishdev.enumeration.Level;
+import io.application.domain.Note;
+import io.application.enumeration.Level;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

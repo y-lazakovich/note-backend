@@ -1,10 +1,11 @@
-package com.cherishdev.service;
+package io.application.service;
 
-import com.cherishdev.domain.HttpResponse;
-import com.cherishdev.domain.Note;
-import com.cherishdev.enumeration.Level;
-import com.cherishdev.exception.NoteNotFoundException;
-import com.cherishdev.repo.NoteRepo;
+import io.application.domain.HttpResponse;
+import io.application.domain.Note;
+import io.application.enumeration.Level;
+import io.application.exception.NoteNotFoundException;
+import io.application.repo.NoteRepo;
+import io.application.util.DateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import static com.cherishdev.util.DateUtil.dateTimeFormatter;
 import static java.util.Collections.singleton;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
@@ -37,7 +37,7 @@ public class NoteService {
                 .setMessage(noteRepo.count() > 0 ? noteRepo.count() + " notes retrieved" : "No notes to display")
                 .setStatus(OK)
                 .setStatusCode(OK.value())
-                .setTimestamp(LocalDateTime.now().format(dateTimeFormatter()));
+                .setTimestamp(LocalDateTime.now().format(DateUtil.dateTimeFormatter()));
     }
 
     public HttpResponse<Note> filterNotes(Level level) {
@@ -48,7 +48,7 @@ public class NoteService {
                 .setMessage(notes.size() + " notes are of " + level + " importance")
                 .setStatus(OK)
                 .setStatusCode(OK.value())
-                .setTimestamp(LocalDateTime.now().format(dateTimeFormatter()));
+                .setTimestamp(LocalDateTime.now().format(DateUtil.dateTimeFormatter()));
     }
 
     public HttpResponse<Note> saveNote(Note note) {
@@ -59,7 +59,7 @@ public class NoteService {
                 .setMessage("Note created successfully")
                 .setStatus(CREATED)
                 .setStatusCode(CREATED.value())
-                .setTimestamp(LocalDateTime.now().format(dateTimeFormatter()));
+                .setTimestamp(LocalDateTime.now().format(DateUtil.dateTimeFormatter()));
     }
 
     public HttpResponse<Note> updateNote(Note note) throws NoteNotFoundException {
@@ -78,7 +78,7 @@ public class NoteService {
                 .setMessage("Note updated successfully")
                 .setStatus(OK)
                 .setStatusCode(OK.value())
-                .setTimestamp(LocalDateTime.now().format(dateTimeFormatter()));
+                .setTimestamp(LocalDateTime.now().format(DateUtil.dateTimeFormatter()));
     }
 
     public HttpResponse<Note> deleteNote(Long id) throws NoteNotFoundException {
@@ -91,6 +91,6 @@ public class NoteService {
                 .setMessage("Note deleted successfully")
                 .setStatus(OK)
                 .setStatusCode(OK.value())
-                .setTimestamp(LocalDateTime.now().format(dateTimeFormatter()));
+                .setTimestamp(LocalDateTime.now().format(DateUtil.dateTimeFormatter()));
     }
 }

@@ -1,9 +1,10 @@
-package com.cherishdev.resource;
+package io.application.resource;
 
-import com.cherishdev.domain.HttpResponse;
-import com.cherishdev.domain.Note;
-import com.cherishdev.enumeration.Level;
-import com.cherishdev.service.NoteService;
+import io.application.domain.HttpResponse;
+import io.application.domain.Note;
+import io.application.enumeration.Level;
+import io.application.service.NoteService;
+import io.application.util.DateUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -13,15 +14,11 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.time.LocalDateTime;
 
-import static com.cherishdev.util.DateUtil.dateTimeFormatter;
-import static java.util.Collections.singleton;
-import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @RestController
 @RequestMapping(path = "/note")
 public class NoteResource {
-
     private final NoteService noteService;
 
     public NoteResource(NoteService noteService) {
@@ -62,6 +59,6 @@ public class NoteResource {
                 .setDeveloperMessage("There is no mapping for a " + request.getMethod() + " request for this path on the server")
                 .setStatus(NOT_FOUND)
                 .setStatusCode(NOT_FOUND.value())
-                .setTimestamp(LocalDateTime.now().format(dateTimeFormatter())), NOT_FOUND);
+                .setTimestamp(LocalDateTime.now().format(DateUtil.dateTimeFormatter())), NOT_FOUND);
     }
 }

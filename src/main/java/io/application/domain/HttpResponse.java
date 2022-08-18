@@ -1,4 +1,4 @@
-package com.cherishdev.domain;
+package io.application.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.http.HttpStatus;

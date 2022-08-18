@@ -1,8 +1,7 @@
-package com.cherishdev.domain;
+package io.application.domain;
 
-import com.cherishdev.enumeration.Level;
+import io.application.enumeration.Level;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;

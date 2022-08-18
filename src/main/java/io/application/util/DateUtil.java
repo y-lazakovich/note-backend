@@ -1,4 +1,4 @@
-package com.cherishdev.util;
+package io.application.util;
 
 import java.time.format.DateTimeFormatter;
 

@@ -1,6 +1,6 @@
-package com.cherishdev.exception;
+package io.application.exception;
 
-import com.cherishdev.domain.HttpResponse;
+import io.application.domain.HttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.error.ErrorController;
@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.cherishdev.util.DateUtil.dateTimeFormatter;
+import static io.application.util.DateUtil.dateTimeFormatter;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
 @RestControllerAdvice

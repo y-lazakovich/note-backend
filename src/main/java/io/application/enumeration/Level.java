@@ -1,4 +1,4 @@
-package com.cherishdev.enumeration;
+package io.application.enumeration;
 
 public enum Level {
 

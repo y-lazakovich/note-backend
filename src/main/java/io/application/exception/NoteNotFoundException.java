@@ -1,4 +1,4 @@
-package com.cherishdev.exception;
+package io.application.exception;
 
 public class NoteNotFoundException extends RuntimeException {
 
